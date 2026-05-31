@@ -1,0 +1,29 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/textures/Rock035/Rock035_1K-JPG_Color.jpg" id="1_rock_col"]
+[ext_resource type="Texture2D" path="res://assets/textures/Rock035/Rock035_1K-JPG_NormalGL.jpg" id="2_rock_nrm"]
+[ext_resource type="Texture2D" path="res://assets/textures/Rock035/Rock035_1K-JPG_Roughness.jpg" id="3_rock_rgh"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_rock"]
+albedo_texture = ExtResource("1_rock_col")
+normal_enabled = true
+normal_texture = ExtResource("2_rock_nrm")
+normal_scale = 1.4
+roughness = 0.0
+roughness_texture = ExtResource("3_rock_rgh")
+uv1_scale = Vector3(2.5, 2.5, 2.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rock"]
+size = Vector3(5, 1, 5)
+
+[sub_resource type="BoxShape3D" id="BoxShape_rock"]
+size = Vector3(5, 1, 5)
+
+[node name="RockPlatform" type="StaticBody3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_rock")
+surface_material_override/0 = SubResource("Mat_rock")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape_rock")

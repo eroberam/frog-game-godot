@@ -1,0 +1,25 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/practice_dummy.gd" id="1_pd"]
+[ext_resource type="ArrayMesh" path="res://assets/models/enemy/Meshy_AI_Spiked_Toad_Warrior_0508114038_texture_obj/Meshy_AI_Spiked_Toad_Warrior_0508114038_texture.obj" id="2_mesh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape_pd"]
+radius = 0.4
+height = 1.6
+
+[node name="PracticeDummy" type="StaticBody3D"]
+script = ExtResource("1_pd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_mesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("CapsuleShape_pd")
+
+[node name="HitLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+light_color = Color(1, 0.4, 0.3, 1)
+light_energy = 0.0
+omni_range = 3.0
+shadow_enabled = false

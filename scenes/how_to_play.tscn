@@ -1,0 +1,302 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/how_to_play.gd" id="1_htp"]
+
+[sub_resource type="StyleBoxFlat" id="SB_panel"]
+bg_color = Color(0.04, 0.1, 0.06, 0.95)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.45, 1, 0.55, 1)
+shadow_color = Color(0.1, 0.5, 0.15, 0.55)
+shadow_size = 24
+shadow_offset = Vector2(0, 8)
+content_margin_left = 28.0
+content_margin_top = 22.0
+content_margin_right = 28.0
+content_margin_bottom = 22.0
+
+[sub_resource type="StyleBoxFlat" id="SB_row"]
+bg_color = Color(0.06, 0.16, 0.09, 0.55)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 14.0
+content_margin_top = 10.0
+content_margin_right = 14.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="SB_key"]
+bg_color = Color(0.18, 0.34, 0.22, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5, 1, 0.6, 1)
+content_margin_left = 12.0
+content_margin_top = 5.0
+content_margin_right = 12.0
+content_margin_bottom = 5.0
+
+[node name="HowToPlay" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_htp")
+
+[node name="BG" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0.04, 0.02, 0.78)
+
+[node name="Panel" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = -300.0
+offset_right = 380.0
+offset_bottom = 300.0
+theme_override_styles/panel = SubResource("SB_panel")
+
+[node name="Header" type="VBoxContainer" parent="Panel"]
+anchor_right = 1.0
+offset_left = 28.0
+offset_top = 22.0
+offset_right = -28.0
+offset_bottom = 100.0
+
+[node name="Title" type="Label" parent="Panel/Header"]
+horizontal_alignment = 1
+text = "CÓMO JUGAR"
+theme_override_colors/font_color = Color(0.55, 1, 0.6, 1)
+theme_override_font_sizes/font_size = 38
+
+[node name="Subtitle" type="Label" parent="Panel/Header"]
+horizontal_alignment = 1
+text = "La savia de la charca duerme. Despierta a Emerald y devuelve la vida al bosque."
+theme_override_colors/font_color = Color(0.85, 0.95, 0.85, 0.85)
+theme_override_font_sizes/font_size = 16
+
+[node name="Rows" type="VBoxContainer" parent="Panel"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = 110.0
+offset_right = -28.0
+offset_bottom = -70.0
+theme_override_constants/separation = 8
+
+[node name="Row1" type="Panel" parent="Panel/Rows"]
+custom_minimum_size = Vector2(0, 48)
+theme_override_styles/panel = SubResource("SB_row")
+
+[node name="HBox" type="HBoxContainer" parent="Panel/Rows/Row1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 8.0
+offset_right = -14.0
+offset_bottom = -8.0
+theme_override_constants/separation = 14
+
+[node name="Icon" type="Label" parent="Panel/Rows/Row1/HBox"]
+custom_minimum_size = Vector2(48, 0)
+text = "🦶"
+theme_override_font_sizes/font_size = 26
+
+[node name="Key" type="Label" parent="Panel/Rows/Row1/HBox"]
+custom_minimum_size = Vector2(180, 0)
+text = "[ W A S D ]   /   ◄ ▲ ▼ ►"
+theme_override_styles/normal = SubResource("SB_key")
+theme_override_colors/font_color = Color(0.85, 1, 0.7, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="Desc" type="Label" parent="Panel/Rows/Row1/HBox"]
+text = "Moverse por la charca"
+theme_override_colors/font_color = Color(0.95, 0.98, 0.92, 1)
+theme_override_font_sizes/font_size = 17
+size_flags_horizontal = 3
+
+[node name="Row2" type="Panel" parent="Panel/Rows"]
+custom_minimum_size = Vector2(0, 48)
+theme_override_styles/panel = SubResource("SB_row")
+
+[node name="HBox" type="HBoxContainer" parent="Panel/Rows/Row2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 8.0
+offset_right = -14.0
+offset_bottom = -8.0
+theme_override_constants/separation = 14
+
+[node name="Icon" type="Label" parent="Panel/Rows/Row2/HBox"]
+custom_minimum_size = Vector2(48, 0)
+text = "🐸"
+theme_override_font_sizes/font_size = 26
+
+[node name="Key" type="Label" parent="Panel/Rows/Row2/HBox"]
+custom_minimum_size = Vector2(180, 0)
+text = "[ Espacio ]"
+theme_override_styles/normal = SubResource("SB_key")
+theme_override_colors/font_color = Color(0.85, 1, 0.7, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="Desc" type="Label" parent="Panel/Rows/Row2/HBox"]
+text = "Saltar  ·  mantén pulsado para cargar un salto largo"
+theme_override_colors/font_color = Color(0.95, 0.98, 0.92, 1)
+theme_override_font_sizes/font_size = 17
+size_flags_horizontal = 3
+
+[node name="Row3" type="Panel" parent="Panel/Rows"]
+custom_minimum_size = Vector2(0, 48)
+theme_override_styles/panel = SubResource("SB_row")
+
+[node name="HBox" type="HBoxContainer" parent="Panel/Rows/Row3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 8.0
+offset_right = -14.0
+offset_bottom = -8.0
+theme_override_constants/separation = 14
+
+[node name="Icon" type="Label" parent="Panel/Rows/Row3/HBox"]
+custom_minimum_size = Vector2(48, 0)
+text = "⚔"
+theme_override_font_sizes/font_size = 26
+
+[node name="Key" type="Label" parent="Panel/Rows/Row3/HBox"]
+custom_minimum_size = Vector2(180, 0)
+text = "Click izquierdo"
+theme_override_styles/normal = SubResource("SB_key")
+theme_override_colors/font_color = Color(0.85, 1, 0.7, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="Desc" type="Label" parent="Panel/Rows/Row3/HBox"]
+text = "Atacar a un enemigo apuntando a él"
+theme_override_colors/font_color = Color(0.95, 0.98, 0.92, 1)
+theme_override_font_sizes/font_size = 17
+size_flags_horizontal = 3
+
+[node name="Row4" type="Panel" parent="Panel/Rows"]
+custom_minimum_size = Vector2(0, 48)
+theme_override_styles/panel = SubResource("SB_row")
+
+[node name="HBox" type="HBoxContainer" parent="Panel/Rows/Row4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 8.0
+offset_right = -14.0
+offset_bottom = -8.0
+theme_override_constants/separation = 14
+
+[node name="Icon" type="Label" parent="Panel/Rows/Row4/HBox"]
+custom_minimum_size = Vector2(48, 0)
+text = "💬"
+theme_override_font_sizes/font_size = 26
+
+[node name="Key" type="Label" parent="Panel/Rows/Row4/HBox"]
+custom_minimum_size = Vector2(180, 0)
+text = "[ E ]"
+theme_override_styles/normal = SubResource("SB_key")
+theme_override_colors/font_color = Color(0.85, 1, 0.7, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="Desc" type="Label" parent="Panel/Rows/Row4/HBox"]
+text = "Hablar con NPC  ·  abrir cofres  ·  avanzar diálogos"
+theme_override_colors/font_color = Color(0.95, 0.98, 0.92, 1)
+theme_override_font_sizes/font_size = 17
+size_flags_horizontal = 3
+
+[node name="Row5" type="Panel" parent="Panel/Rows"]
+custom_minimum_size = Vector2(0, 48)
+theme_override_styles/panel = SubResource("SB_row")
+
+[node name="HBox" type="HBoxContainer" parent="Panel/Rows/Row5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 8.0
+offset_right = -14.0
+offset_bottom = -8.0
+theme_override_constants/separation = 14
+
+[node name="Icon" type="Label" parent="Panel/Rows/Row5/HBox"]
+custom_minimum_size = Vector2(48, 0)
+text = "🎥"
+theme_override_font_sizes/font_size = 26
+
+[node name="Key" type="Label" parent="Panel/Rows/Row5/HBox"]
+custom_minimum_size = Vector2(180, 0)
+text = "Rueda del ratón"
+theme_override_styles/normal = SubResource("SB_key")
+theme_override_colors/font_color = Color(0.85, 1, 0.7, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="Desc" type="Label" parent="Panel/Rows/Row5/HBox"]
+text = "Acercar / alejar la cámara"
+theme_override_colors/font_color = Color(0.95, 0.98, 0.92, 1)
+theme_override_font_sizes/font_size = 17
+size_flags_horizontal = 3
+
+[node name="Row6" type="Panel" parent="Panel/Rows"]
+custom_minimum_size = Vector2(0, 48)
+theme_override_styles/panel = SubResource("SB_row")
+
+[node name="HBox" type="HBoxContainer" parent="Panel/Rows/Row6"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 8.0
+offset_right = -14.0
+offset_bottom = -8.0
+theme_override_constants/separation = 14
+
+[node name="Icon" type="Label" parent="Panel/Rows/Row6/HBox"]
+custom_minimum_size = Vector2(48, 0)
+text = "🍃"
+theme_override_font_sizes/font_size = 26
+
+[node name="Key" type="Label" parent="Panel/Rows/Row6/HBox"]
+custom_minimum_size = Vector2(180, 0)
+text = "Cofres y pistas"
+theme_override_styles/normal = SubResource("SB_key")
+theme_override_colors/font_color = Color(0.85, 1, 0.7, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="Desc" type="Label" parent="Panel/Rows/Row6/HBox"]
+text = "Cofres de musgo curan  ·  los oscuros tienden trampas. Los Puntos de Savia te devuelven a la vida."
+theme_override_colors/font_color = Color(0.95, 0.98, 0.92, 1)
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 3
+size_flags_horizontal = 3
+
+[node name="Footer" type="VBoxContainer" parent="Panel"]
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 28.0
+offset_top = -56.0
+offset_right = -28.0
+offset_bottom = -22.0
+
+[node name="Hint" type="Label" parent="Panel/Footer"]
+horizontal_alignment = 1
+text = "Pulsa  [ Espacio ]  o haz click para empezar"
+theme_override_colors/font_color = Color(0.7, 0.95, 0.75, 0.9)
+theme_override_font_sizes/font_size = 16

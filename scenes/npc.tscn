@@ -1,0 +1,29 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/npc.gd" id="1_npc"]
+[ext_resource type="ArrayMesh" path="res://assets/models/npc/Meshy_AI_Emerald_Sage_Frog_0508104220_texture.obj" id="2_npc_mesh"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_detect"]
+radius = 2.5
+
+[node name="NPC" type="Node3D"]
+script = ExtResource("1_npc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = ExtResource("2_npc_mesh")
+
+[node name="DetectionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("SphereShape3D_detect")
+
+[node name="PromptLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+text = ""
+pixel_size = 0.007
+font_size = 56
+outline_size = 14
+billboard = 1
+double_sided = true

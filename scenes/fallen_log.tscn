@@ -1,0 +1,63 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/textures/Bark007/Bark007_1K-JPG_Color.jpg" id="1_bark_col"]
+[ext_resource type="Texture2D" path="res://assets/textures/Bark007/Bark007_1K-JPG_NormalGL.jpg" id="2_bark_nrm"]
+[ext_resource type="Texture2D" path="res://assets/textures/Bark007/Bark007_1K-JPG_Roughness.jpg" id="3_bark_rgh"]
+[ext_resource type="Texture2D" path="res://assets/textures/Bark007/Bark007_1K-JPG_AmbientOcclusion.jpg" id="4_bark_ao"]
+[ext_resource type="Texture2D" path="res://assets/textures/Moss002/Moss002_1K-JPG_Color.jpg" id="5_moss_col"]
+[ext_resource type="Texture2D" path="res://assets/textures/Moss002/Moss002_1K-JPG_NormalGL.jpg" id="6_moss_nrm"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_bark"]
+albedo_texture = ExtResource("1_bark_col")
+normal_enabled = true
+normal_texture = ExtResource("2_bark_nrm")
+normal_scale = 1.5
+roughness = 1.0
+roughness_texture = ExtResource("3_bark_rgh")
+ao_enabled = true
+ao_texture = ExtResource("4_bark_ao")
+uv1_scale = Vector3(2, 1, 2)
+
+[sub_resource type="StandardMaterial3D" id="Mat_moss"]
+albedo_texture = ExtResource("5_moss_col")
+normal_enabled = true
+normal_texture = ExtResource("6_moss_nrm")
+normal_scale = 1.6
+roughness = 0.9
+albedo_color = Color(0.85, 1.0, 0.7, 1)
+
+[sub_resource type="CylinderMesh" id="LogMesh"]
+top_radius = 0.45
+bottom_radius = 0.55
+height = 4.4
+radial_segments = 14
+material = SubResource("Mat_bark")
+
+[sub_resource type="CylinderShape3D" id="LogShape"]
+radius = 0.5
+height = 4.4
+
+[sub_resource type="CylinderMesh" id="MossPatchMesh"]
+top_radius = 0.5
+bottom_radius = 0.55
+height = 0.18
+radial_segments = 14
+material = SubResource("Mat_moss")
+
+[node name="FallenLog" type="StaticBody3D"]
+
+[node name="Trunk" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0.5, 0)
+mesh = SubResource("LogMesh")
+
+[node name="Col" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0.5, 0)
+shape = SubResource("LogShape")
+
+[node name="Moss1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.94, 0, 0, 0, 1, 0, 0, 0, 0.94, -0.9, 0.99, 0)
+mesh = SubResource("MossPatchMesh")
+
+[node name="Moss2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.92, 0, 0, 0, 1, 0, 0, 0, 0.92, 0.7, 0.99, 0)
+mesh = SubResource("MossPatchMesh")

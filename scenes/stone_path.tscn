@@ -1,0 +1,34 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/textures/PavingStones139/PavingStones139_2K-PNG_Color.png" id="1_pav_col"]
+[ext_resource type="Texture2D" path="res://assets/textures/PavingStones139/PavingStones139_2K-PNG_NormalGL.png" id="2_pav_nrm"]
+[ext_resource type="Texture2D" path="res://assets/textures/PavingStones139/PavingStones139_2K-PNG_Roughness.png" id="3_pav_rgh"]
+[ext_resource type="Texture2D" path="res://assets/textures/PavingStones139/PavingStones139_2K-PNG_AmbientOcclusion.png" id="4_pav_ao"]
+[ext_resource type="Texture2D" path="res://assets/textures/PavingStones139/PavingStones139_2K-PNG_Displacement.png" id="5_pav_disp"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_paving"]
+albedo_texture = ExtResource("1_pav_col")
+normal_enabled = true
+normal_texture = ExtResource("2_pav_nrm")
+normal_scale = 1.6
+roughness = 1.0
+roughness_texture = ExtResource("3_pav_rgh")
+ao_enabled = true
+ao_texture = ExtResource("4_pav_ao")
+ao_light_affect = 0.95
+heightmap_enabled = true
+heightmap_scale = 4.0
+heightmap_deep_parallax = true
+heightmap_min_layers = 8
+heightmap_max_layers = 28
+heightmap_texture = ExtResource("5_pav_disp")
+uv1_scale = Vector3(1.5, 1.5, 1.5)
+
+[sub_resource type="BoxMesh" id="PathMesh"]
+size = Vector3(2.4, 0.08, 30)
+material = SubResource("Mat_paving")
+
+[node name="StonePath" type="Node3D"]
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("PathMesh")

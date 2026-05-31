@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c6nulqu0ve4hg"
+path="res://.godot/imported/Meshy_AI_Buzzy_the_Bee_0508114611_texture.obj-478f6e93a049d446b571a126b1cfe910.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Meshy_AI_Buzzy_the_Bee_0508114611_texture.obj-478f6e93a049d446b571a126b1cfe910.mesh"]
+
+source_file="res://assets/models/bee/Meshy_AI_Buzzy_the_Bee_0508114611_texture_obj/Meshy_AI_Buzzy_the_Bee_0508114611_texture.obj"
+dest_files=["res://.godot/imported/Meshy_AI_Buzzy_the_Bee_0508114611_texture.obj-478f6e93a049d446b571a126b1cfe910.mesh", "res://.godot/imported/Meshy_AI_Buzzy_the_Bee_0508114611_texture.obj-478f6e93a049d446b571a126b1cfe910.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

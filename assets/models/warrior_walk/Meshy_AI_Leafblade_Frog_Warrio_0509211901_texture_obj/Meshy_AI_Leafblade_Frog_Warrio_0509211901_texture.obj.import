@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://hbb4jphlcjxw"
+path="res://.godot/imported/Meshy_AI_Leafblade_Frog_Warrio_0509211901_texture.obj-b1b52a1385eb4ed40d9a9b1871cca144.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Meshy_AI_Leafblade_Frog_Warrio_0509211901_texture.obj-b1b52a1385eb4ed40d9a9b1871cca144.mesh"]
+
+source_file="res://assets/models/warrior_walk/Meshy_AI_Leafblade_Frog_Warrio_0509211901_texture_obj/Meshy_AI_Leafblade_Frog_Warrio_0509211901_texture.obj"
+dest_files=["res://.godot/imported/Meshy_AI_Leafblade_Frog_Warrio_0509211901_texture.obj-b1b52a1385eb4ed40d9a9b1871cca144.mesh", "res://.godot/imported/Meshy_AI_Leafblade_Frog_Warrio_0509211901_texture.obj-b1b52a1385eb4ed40d9a9b1871cca144.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

@@ -1,0 +1,1098 @@
+[gd_scene format=3 uid="uid://cqs2f873voy7"]
+
+[ext_resource type="Script" uid="uid://c5s7qs86d7n0i" path="res://scripts/player.gd" id="1_player"]
+[ext_resource type="ArrayMesh" uid="uid://bvxhlgwv2hyq3" path="res://assets/models/frog/Meshy_AI_Emerald_Hopper_0508093503_texture.obj" id="2_0wfyh"]
+[ext_resource type="PackedScene" path="res://scenes/item.tscn" id="3_item"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="4_hud"]
+[ext_resource type="PackedScene" path="res://scenes/goal.tscn" id="5_goal"]
+[ext_resource type="PackedScene" path="res://scenes/npc.tscn" id="6_npc"]
+[ext_resource type="Shader" uid="uid://dneq0dompci7g" path="res://shaders/water.gdshader" id="7_water"]
+[ext_resource type="PackedScene" path="res://scenes/lily_pad.tscn" id="8_lilypad"]
+[ext_resource type="PackedScene" path="res://scenes/mushroom_platform.tscn" id="9_mushroom"]
+[ext_resource type="PackedScene" path="res://scenes/tree.tscn" id="11_tree"]
+[ext_resource type="Texture2D" uid="uid://3dbt6kbjf1oo" path="res://assets/textures/Moss002/Moss002_1K-JPG_Color.jpg" id="12_moss_col"]
+[ext_resource type="Texture2D" uid="uid://fkmq3bw0fcnv" path="res://assets/textures/Moss002/Moss002_1K-JPG_NormalGL.jpg" id="13_moss_nrm"]
+[ext_resource type="Texture2D" uid="uid://cy0qveays16o8" path="res://assets/textures/Moss002/Moss002_1K-JPG_Roughness.jpg" id="14_moss_rgh"]
+[ext_resource type="PackedScene" path="res://scenes/chest.tscn" id="16_chest"]
+[ext_resource type="PackedScene" path="res://scenes/bee.tscn" id="17_bee"]
+[ext_resource type="PackedScene" path="res://scenes/cottage.tscn" id="18_cottage"]
+[ext_resource type="PackedScene" path="res://scenes/boss_enemy.tscn" id="19_boss"]
+[ext_resource type="PackedScene" path="res://scenes/sword.tscn" id="20_sword"]
+[ext_resource type="ArrayMesh" uid="uid://b5cqtu6d4kbj6" path="res://assets/models/frog_hop/Meshy_AI_Cheerful_Green_Frog_0508113334_texture_obj/Meshy_AI_Cheerful_Green_Frog_0508113334_texture.obj" id="21_frog_hop"]
+[ext_resource type="ArrayMesh" uid="uid://dfjvuhgyessn7" path="res://assets/models/warrior/Meshy_AI_Greenleaf_Warrior_0508172158_texture_obj/Meshy_AI_Greenleaf_Warrior_0508172158_texture.obj" id="22_warrior"]
+[ext_resource type="ArrayMesh" path="res://assets/models/frog_walk/Meshy_AI_Emerald_Hopper_0509212009_texture_obj/Meshy_AI_Emerald_Hopper_0509212009_texture.obj" id="22a_frog_walk"]
+[ext_resource type="ArrayMesh" path="res://assets/models/warrior_walk/Meshy_AI_Leafblade_Frog_Warrio_0509211901_texture_obj/Meshy_AI_Leafblade_Frog_Warrio_0509211901_texture.obj" id="22b_warrior_walk"]
+[ext_resource type="Texture2D" path="res://assets/textures/Bark007/Bark007_1K-JPG_Color.jpg" id="23_bark_col"]
+[ext_resource type="Texture2D" path="res://assets/textures/Bark007/Bark007_1K-JPG_NormalGL.jpg" id="24_bark_nrm"]
+[ext_resource type="Texture2D" path="res://assets/textures/Bark007/Bark007_1K-JPG_Roughness.jpg" id="24b_bark_rgh"]
+[ext_resource type="Texture2D" path="res://assets/textures/Bark007/Bark007_1K-JPG_AmbientOcclusion.jpg" id="24c_bark_ao"]
+[ext_resource type="Texture2D" path="res://assets/textures/Ground037/Ground037_1K-JPG_Color.jpg" id="30_dirt_col"]
+[ext_resource type="Texture2D" path="res://assets/textures/Ground037/Ground037_1K-JPG_NormalGL.jpg" id="31_dirt_nrm"]
+[ext_resource type="Texture2D" path="res://assets/textures/Ground037/Ground037_1K-JPG_Roughness.jpg" id="32_dirt_rgh"]
+[ext_resource type="Texture2D" path="res://assets/textures/Ground037/Ground037_1K-JPG_AmbientOcclusion.jpg" id="32b_dirt_ao"]
+[ext_resource type="Texture2D" path="res://assets/textures/Moss004/Moss004_1K-JPG_Color.jpg" id="33_moss4_col"]
+[ext_resource type="Texture2D" path="res://assets/textures/Moss004/Moss004_1K-JPG_NormalGL.jpg" id="34_moss4_nrm"]
+[ext_resource type="Texture2D" path="res://assets/textures/Moss004/Moss004_1K-JPG_Roughness.jpg" id="34b_moss4_rgh"]
+[ext_resource type="Texture2D" path="res://assets/textures/Moss004/Moss004_1K-JPG_AmbientOcclusion.jpg" id="34c_moss4_ao"]
+[ext_resource type="Texture2D" path="res://assets/textures/Moss004/Moss004_1K-JPG_Displacement.jpg" id="34d_moss4_disp"]
+[ext_resource type="Texture2D" path="res://assets/textures/Rock022/Rock022_1K-JPG_Color.jpg" id="35_r22_col"]
+[ext_resource type="Texture2D" path="res://assets/textures/Rock022/Rock022_1K-JPG_NormalGL.jpg" id="36_r22_nrm"]
+[ext_resource type="Texture2D" path="res://assets/textures/Rock022/Rock022_1K-JPG_Roughness.jpg" id="37_r22_rgh"]
+[ext_resource type="Texture2D" path="res://assets/textures/Rock022/Rock022_1K-JPG_AmbientOcclusion.jpg" id="38_r22_ao"]
+[ext_resource type="Texture2D" path="res://assets/textures/Bamboo001A/Bamboo001A_2K-PNG_Color.png" id="50_bam_col"]
+[ext_resource type="Texture2D" path="res://assets/textures/Bamboo001A/Bamboo001A_2K-PNG_NormalGL.png" id="51_bam_nrm"]
+[ext_resource type="Texture2D" path="res://assets/textures/Bamboo001A/Bamboo001A_2K-PNG_Roughness.png" id="52_bam_rgh"]
+[ext_resource type="Texture2D" path="res://assets/textures/Bamboo001A/Bamboo001A_2K-PNG_AmbientOcclusion.png" id="53_bam_ao"]
+[ext_resource type="Texture2D" path="res://assets/textures/Grass002/Grass002_2K-PNG_Color.png" id="60_grs_col"]
+[ext_resource type="Texture2D" path="res://assets/textures/Grass002/Grass002_2K-PNG_NormalGL.png" id="61_grs_nrm"]
+[ext_resource type="Texture2D" path="res://assets/textures/Grass002/Grass002_2K-PNG_Roughness.png" id="62_grs_rgh"]
+[ext_resource type="Texture2D" path="res://assets/textures/Grass002/Grass002_2K-PNG_AmbientOcclusion.png" id="63_grs_ao"]
+[ext_resource type="Texture2D" path="res://assets/textures/Grass002/Grass002_2K-PNG_Displacement.png" id="64_grs_disp"]
+[ext_resource type="Texture2D" path="res://assets/textures/Rock048/Rock048_2K-PNG_Color.png" id="80_r48_col"]
+[ext_resource type="Texture2D" path="res://assets/textures/Rock048/Rock048_2K-PNG_NormalGL.png" id="81_r48_nrm"]
+[ext_resource type="Texture2D" path="res://assets/textures/Rock048/Rock048_2K-PNG_Roughness.png" id="82_r48_rgh"]
+[ext_resource type="Texture2D" path="res://assets/textures/Rock048/Rock048_2K-PNG_AmbientOcclusion.png" id="83_r48_ao"]
+[ext_resource type="PackedScene" path="res://scenes/stone_path.tscn" id="100_path"]
+[ext_resource type="Script" path="res://scripts/water_area.gd" id="0_water_area"]
+[ext_resource type="PackedScene" path="res://scenes/checkpoint.tscn" id="25_cp"]
+[ext_resource type="PackedScene" path="res://scenes/toadling.tscn" id="26_toad"]
+[ext_resource type="PackedScene" path="res://scenes/level_intro.tscn" id="27_intro"]
+[ext_resource type="PackedScene" path="res://scenes/how_to_play.tscn" id="27b_htp"]
+[ext_resource type="PackedScene" path="res://scenes/tutorial_guide.tscn" id="27c_tg"]
+[ext_resource type="PackedScene" path="res://scenes/practice_dummy.tscn" id="27d_pd"]
+[ext_resource type="PackedScene" path="res://scenes/petal.tscn" id="27e_petal"]
+[ext_resource type="PackedScene" path="res://scenes/mountain.tscn" id="40_mountain"]
+[ext_resource type="PackedScene" path="res://scenes/bush.tscn" id="41_bush"]
+[ext_resource type="PackedScene" path="res://scenes/cattail.tscn" id="42_cattail"]
+[ext_resource type="PackedScene" path="res://scenes/fireflies.tscn" id="43_fireflies"]
+[ext_resource type="PackedScene" path="res://scenes/fallen_log.tscn" id="44_log"]
+[ext_resource type="PackedScene" path="res://scenes/lantern.tscn" id="45_lantern"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1"]
+sky_top_color = Color(0.18, 0.38, 0.68, 1)
+sky_horizon_color = Color(0.55, 0.78, 0.6, 1)
+ground_bottom_color = Color(0.06, 0.1, 0.06, 1)
+ground_horizon_color = Color(0.28, 0.4, 0.2, 1)
+sun_angle_max = 35.0
+
+[sub_resource type="Sky" id="Sky_1"]
+sky_material = SubResource("ProceduralSkyMaterial_1")
+
+[sub_resource type="Environment" id="Environment_1"]
+background_mode = 2
+sky = SubResource("Sky_1")
+ambient_light_source = 3
+ambient_light_color = Color(0.72, 0.88, 0.68, 1)
+ambient_light_energy = 0.45
+ssao_enabled = true
+ssao_radius = 1.4
+ssao_intensity = 1.4
+ssil_enabled = false
+fog_enabled = true
+fog_light_color = Color(0.6, 0.8, 0.62, 1)
+fog_density = 0.011
+fog_aerial_perspective = 0.35
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_water"]
+size = Vector2(220, 220)
+
+[sub_resource type="ShaderMaterial" id="ShaderMat_water"]
+shader = ExtResource("7_water")
+shader_parameter/deep_color = Color(0.04, 0.18, 0.32, 0.92)
+shader_parameter/shallow_color = Color(0.08, 0.42, 0.48, 0.78)
+shader_parameter/wave_speed = 0.4
+shader_parameter/wave_height = 0.06
+shader_parameter/wave_scale = 1.2
+
+[sub_resource type="StandardMaterial3D" id="Mat_grass"]
+albedo_texture = ExtResource("60_grs_col")
+normal_enabled = true
+normal_texture = ExtResource("61_grs_nrm")
+normal_scale = 1.6
+roughness = 1.0
+roughness_texture = ExtResource("62_grs_rgh")
+ao_enabled = true
+ao_texture = ExtResource("63_grs_ao")
+ao_light_affect = 0.9
+heightmap_enabled = true
+heightmap_scale = 4.0
+heightmap_deep_parallax = true
+heightmap_min_layers = 8
+heightmap_max_layers = 32
+heightmap_texture = ExtResource("64_grs_disp")
+uv1_scale = Vector3(6, 6, 6)
+albedo_color = Color(0.85, 1.0, 0.78, 1)
+
+[sub_resource type="StandardMaterial3D" id="Mat_dirt_path"]
+albedo_texture = ExtResource("30_dirt_col")
+normal_enabled = true
+normal_texture = ExtResource("31_dirt_nrm")
+normal_scale = 1.4
+roughness = 1.0
+roughness_texture = ExtResource("32_dirt_rgh")
+ao_enabled = true
+ao_texture = ExtResource("32b_dirt_ao")
+uv1_scale = Vector3(2.2, 1, 2.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ground"]
+material = SubResource("Mat_grass")
+size = Vector3(14, 1, 32)
+
+[sub_resource type="BoxShape3D" id="BoxShape_ground"]
+size = Vector3(14, 1, 32)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_player"]
+radius = 0.4
+height = 1.8
+
+[sub_resource type="SphereMesh" id="RockMesh"]
+radius = 0.42
+height = 0.28
+radial_segments = 10
+rings = 5
+
+[sub_resource type="StandardMaterial3D" id="Mat_rock_dec"]
+albedo_texture = ExtResource("80_r48_col")
+normal_enabled = true
+normal_texture = ExtResource("81_r48_nrm")
+normal_scale = 1.4
+roughness = 1.0
+roughness_texture = ExtResource("82_r48_rgh")
+ao_enabled = true
+ao_texture = ExtResource("83_r48_ao")
+ao_light_affect = 0.9
+uv1_scale = Vector3(1.2, 1.2, 1.2)
+
+[sub_resource type="SphereShape3D" id="RockShape"]
+radius = 0.22
+
+[sub_resource type="CylinderMesh" id="BambooMesh"]
+top_radius = 0.07
+bottom_radius = 0.09
+height = 2.2
+
+[sub_resource type="StandardMaterial3D" id="Mat_bamboo"]
+albedo_texture = ExtResource("50_bam_col")
+normal_enabled = true
+normal_texture = ExtResource("51_bam_nrm")
+normal_scale = 1.5
+roughness = 1.0
+roughness_texture = ExtResource("52_bam_rgh")
+ao_enabled = true
+ao_texture = ExtResource("53_bam_ao")
+ao_light_affect = 0.85
+albedo_color = Color(0.92, 1.0, 0.85, 1)
+uv1_scale = Vector3(0.45, 1.5, 0.45)
+
+[sub_resource type="CylinderShape3D" id="BambooShape"]
+height = 2.2
+radius = 0.09
+
+[sub_resource type="StandardMaterial3D" id="Mat_log_bark"]
+albedo_texture = ExtResource("23_bark_col")
+normal_enabled = true
+normal_texture = ExtResource("24_bark_nrm")
+normal_scale = 1.4
+roughness = 1.0
+roughness_texture = ExtResource("24b_bark_rgh")
+ao_enabled = true
+ao_texture = ExtResource("24c_bark_ao")
+uv1_scale = Vector3(2, 1, 2)
+
+[sub_resource type="BoxMesh" id="BossPlatMesh"]
+material = SubResource("Mat_log_bark")
+size = Vector3(8, 1, 8)
+
+[sub_resource type="BoxShape3D" id="BossPlatShape"]
+size = Vector3(8, 1, 8)
+
+[sub_resource type="BoxShape3D" id="WaterShape"]
+size = Vector3(220, 1.0, 220)
+
+[sub_resource type="BoxMesh" id="StoneStepMesh"]
+material = SubResource("Mat_rock_dec")
+size = Vector3(1.4, 0.4, 1.4)
+
+[sub_resource type="BoxShape3D" id="StoneStepShape"]
+size = Vector3(1.4, 0.4, 1.4)
+
+[sub_resource type="BoxMesh" id="MossStumpMesh"]
+material = SubResource("Mat_log_bark")
+size = Vector3(0.9, 0.7, 0.9)
+
+[sub_resource type="BoxShape3D" id="MossStumpShape"]
+size = Vector3(0.9, 0.7, 0.9)
+
+[sub_resource type="CylinderMesh" id="WatchPostMesh"]
+top_radius = 0.18
+bottom_radius = 0.22
+height = 4.5
+material = SubResource("Mat_log_bark")
+
+[sub_resource type="CylinderShape3D" id="WatchPostShape"]
+radius = 0.22
+height = 4.5
+
+[sub_resource type="CylinderMesh" id="WatchTopMesh"]
+top_radius = 1.2
+bottom_radius = 1.4
+height = 0.35
+radial_segments = 14
+material = SubResource("Mat_log_bark")
+
+[sub_resource type="CylinderShape3D" id="WatchTopShape"]
+radius = 1.3
+height = 0.35
+
+[sub_resource type="BoxMesh" id="FloatPlankMesh"]
+material = SubResource("Mat_log_bark")
+size = Vector3(1.6, 0.18, 1.0)
+
+[sub_resource type="BoxShape3D" id="FloatPlankShape"]
+size = Vector3(1.6, 0.18, 1.0)
+
+[sub_resource type="BoxMesh" id="BridgePlankMesh"]
+material = SubResource("Mat_log_bark")
+size = Vector3(4.0, 0.45, 2.4)
+
+[sub_resource type="BoxShape3D" id="BridgePlankShape"]
+size = Vector3(4.0, 0.45, 2.4)
+
+[sub_resource type="BoxMesh" id="RampMesh"]
+material = SubResource("Mat_log_bark")
+size = Vector3(3.0, 0.3, 2.0)
+
+[sub_resource type="BoxShape3D" id="RampShape"]
+size = Vector3(3.0, 0.3, 2.0)
+
+[sub_resource type="BoxMesh" id="DuelArenaMesh"]
+material = SubResource("Mat_dirt_path")
+size = Vector3(8, 0.4, 6)
+
+[sub_resource type="BoxShape3D" id="DuelArenaShape"]
+size = Vector3(8, 0.4, 6)
+
+[node name="Main" type="Node3D" unique_id=948407089]
+
+[node name="LevelIntro" parent="." instance=ExtResource("27_intro")]
+
+[node name="HowToPlay" parent="." instance=ExtResource("27b_htp")]
+
+[node name="TutorialGuide" parent="." instance=ExtResource("27c_tg")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.35, 0.358, 0, 0.715, 0.699, -0.5, -0.606, 0.619, 0, 18, 0)
+light_color = Color(1, 0.95, 0.78, 1)
+light_energy = 1.45
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1863647061]
+transform = Transform3D(1, 0, 0, 0, 0.951, -0.309, 0, 0.309, 0.951, 0, 3, 8)
+
+[node name="WaterArea" type="Area3D" parent="."]
+script = ExtResource("0_water_area")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -50)
+
+[node name="WaterCollision" type="CollisionShape3D" parent="WaterArea"]
+shape = SubResource("WaterShape")
+
+[node name="Water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35, -45)
+mesh = SubResource("PlaneMesh_water")
+surface_material_override/0 = SubResource("ShaderMat_water")
+
+[node name="TutorialGround" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, -15)
+
+[node name="Mesh" type="MeshInstance3D" parent="TutorialGround"]
+mesh = SubResource("BoxMesh_ground")
+
+[node name="Collision" type="CollisionShape3D" parent="TutorialGround"]
+shape = SubResource("BoxShape_ground")
+
+[node name="BossPlatform" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0, -50)
+
+[node name="Mesh" type="MeshInstance3D" parent="BossPlatform"]
+mesh = SubResource("BossPlatMesh")
+
+[node name="Collision" type="CollisionShape3D" parent="BossPlatform"]
+shape = SubResource("BossPlatShape")
+
+[node name="ApprenticeChasm" type="Node3D" parent="."]
+
+[node name="RampUp" type="StaticBody3D" parent="ApprenticeChasm"]
+transform = Transform3D(1, 0, 0, 0, 0.985, 0.174, 0, -0.174, 0.985, 0, 0.45, -8.0)
+[node name="Mesh" type="MeshInstance3D" parent="ApprenticeChasm/RampUp"]
+mesh = SubResource("RampMesh")
+[node name="Col" type="CollisionShape3D" parent="ApprenticeChasm/RampUp"]
+shape = SubResource("RampShape")
+
+[node name="PlatformA" type="StaticBody3D" parent="ApprenticeChasm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -10.0)
+[node name="Mesh" type="MeshInstance3D" parent="ApprenticeChasm/PlatformA"]
+mesh = SubResource("BridgePlankMesh")
+[node name="Col" type="CollisionShape3D" parent="ApprenticeChasm/PlatformA"]
+shape = SubResource("BridgePlankShape")
+
+[node name="PlatformB" type="StaticBody3D" parent="ApprenticeChasm"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -13.1)
+[node name="Mesh" type="MeshInstance3D" parent="ApprenticeChasm/PlatformB"]
+mesh = SubResource("BridgePlankMesh")
+[node name="Col" type="CollisionShape3D" parent="ApprenticeChasm/PlatformB"]
+shape = SubResource("BridgePlankShape")
+
+[node name="RampDown" type="StaticBody3D" parent="ApprenticeChasm"]
+transform = Transform3D(1, 0, 0, 0, 0.985, -0.174, 0, 0.174, 0.985, 0, 0.45, -15.5)
+[node name="Mesh" type="MeshInstance3D" parent="ApprenticeChasm/RampDown"]
+mesh = SubResource("RampMesh")
+[node name="Col" type="CollisionShape3D" parent="ApprenticeChasm/RampDown"]
+shape = SubResource("RampShape")
+
+[node name="ChasmFireflies" parent="ApprenticeChasm" instance=ExtResource("43_fireflies")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -11.55)
+amount = 14
+pulse_color = Color(0.7, 1, 0.55, 1)
+
+[node name="MushroomDJTest" parent="." instance=ExtResource("9_mushroom")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 0, -32)
+stem_height = 1.05
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=1458161000]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("CapsuleShape3D_player")
+
+[node name="FrogMesh" type="MeshInstance3D" parent="Player" unique_id=958190532]
+mesh = ExtResource("2_0wfyh")
+
+[node name="FrogWalkMesh" type="MeshInstance3D" parent="Player"]
+visible = false
+mesh = ExtResource("22a_frog_walk")
+
+[node name="FrogHopMesh" type="MeshInstance3D" parent="Player"]
+visible = false
+mesh = ExtResource("21_frog_hop")
+
+[node name="WarriorMesh" type="MeshInstance3D" parent="Player"]
+visible = false
+mesh = ExtResource("22_warrior")
+
+[node name="WarriorWalkMesh" type="MeshInstance3D" parent="Player"]
+visible = false
+mesh = ExtResource("22b_warrior_walk")
+
+[node name="Cottage" parent="." instance=ExtResource("18_cottage")]
+transform = Transform3D(0.866, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866, 4.5, 0, -2)
+
+[node name="Cottage2" parent="." instance=ExtResource("18_cottage")]
+transform = Transform3D(0.3, 0, 0.5196, 0, 0.6, 0, -0.5196, 0, 0.3, -5.4, 0, -27)
+
+[node name="Cottage3" parent="." instance=ExtResource("18_cottage")]
+transform = Transform3D(-0.4596, 0, 0.4596, 0, 0.65, 0, -0.4596, 0, -0.4596, -5.8, 0, -3)
+
+[node name="CottageHill" parent="." instance=ExtResource("18_cottage")]
+transform = Transform3D(0.318, 0, 0.318, 0, 0.45, 0, -0.318, 0, 0.318, -12, 1.96, -3.5)
+
+[node name="PetalCottageHill" parent="." instance=ExtResource("27e_petal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.5, 2.7, -3.5)
+
+[node name="CottageBoss" parent="." instance=ExtResource("18_cottage")]
+transform = Transform3D(-0.6, 0, 0, 0, 0.6, 0, 0, 0, -0.6, 0, 2.5, -53)
+
+[node name="Thornwick" parent="." instance=ExtResource("6_npc")]
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 3, 1, -5)
+npc_mesh_scale = 1.8
+gate_group = "gate_thornwick"
+next_objective = "Cruza el Foso del Aprendiz hacia el norte"
+speaker_name = "Thornwick el Sabio"
+dialogues = ["Emerald… por fin despiertas. Hace tres lunas que la savia del Gran Tronco se detuvo.", "Croak, el Rey de Hierro, ha plantado espinas de óxido en la Primera Raíz. Sin ella, la charca olvida.", "Las ranas-abeja ya no polinizan los nenúfares y los toadlings espinosos vigilan los caminos altos.", "Tú no recuerdas, pero la charca te recuerda. Tu salto medía las estaciones.", "Recorre el camino del norte. Cofres de musgo te darán refugio; los que brillan con luz oscura, no.", "La Espada de Palmera duerme tras los nenúfares. Sólo entonces podrás romper la coraza de Croak.", "Cuando estés lista, abriré la puerta de bambú. Que cada Punto de Savia te recuerde dónde regresar.", "Ve con cuidado, pequeña guerrera. La charca confía en ti."]
+
+[node name="StonePath" parent="." instance=ExtResource("100_path")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005, -15)
+
+[node name="Checkpoint0" parent="." instance=ExtResource("25_cp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -3)
+checkpoint_name = "Hogar de Thornwick"
+
+[node name="ChestSafe" parent="." instance=ExtResource("16_chest")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -17)
+chest_type = "health"
+heal_amount = 25
+
+[node name="PracticeDummy" parent="." instance=ExtResource("27d_pd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.625, -10)
+max_health = 30
+
+[node name="MushroomTower" type="Node3D" parent="."]
+
+[node name="MTower1" parent="MushroomTower" instance=ExtResource("9_mushroom")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 0, -12)
+stem_height = 1.0
+cap_radius = 1.6
+
+[node name="MTower2" parent="MushroomTower" instance=ExtResource("9_mushroom")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 6.4, 1.45, -13.0)
+stem_height = 0.9
+cap_radius = 1.4
+
+[node name="MTower3" parent="MushroomTower" instance=ExtResource("9_mushroom")]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 5.9, 2.65, -13.8)
+stem_height = 0.8
+cap_radius = 1.3
+
+[node name="MTower4" parent="MushroomTower" instance=ExtResource("9_mushroom")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 5.0, 3.75, -13.0)
+stem_height = 0.8
+cap_radius = 1.25
+
+[node name="ElixirHeal1" parent="." instance=ExtResource("3_item")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0, 4.85, -13.0)
+heal_amount = 25
+
+[node name="PetalMushroomTower" parent="." instance=ExtResource("27e_petal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0, 5.7, -13.0)
+
+[node name="ElixirHeal2" parent="." instance=ExtResource("3_item")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0, 0.6, -24)
+heal_amount = 30
+
+[node name="ElixirHeal3" parent="." instance=ExtResource("3_item")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.0, -50)
+heal_amount = 40
+
+[node name="ChestTrap" parent="." instance=ExtResource("16_chest")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -25)
+chest_type = "enemy"
+enemy_scene = ExtResource("26_toad")
+boss_scene = ExtResource("26_toad")
+gate_group = "gate_arena"
+
+[node name="BeeArena" parent="." instance=ExtResource("17_bee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.7, -26)
+
+[node name="ElixirDoubleJump" parent="." instance=ExtResource("3_item")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, -31)
+power_name = "double_jump"
+
+[node name="Checkpoint1" parent="." instance=ExtResource("25_cp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -31)
+checkpoint_name = "Borde de los Nenúfares"
+
+[node name="DoubleJumpChasm" type="Node3D" parent="."]
+
+[node name="LowPlat" type="StaticBody3D" parent="DoubleJumpChasm"]
+transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 0.7, -3.2, 0.5, -32.5)
+[node name="Mesh" type="MeshInstance3D" parent="DoubleJumpChasm/LowPlat"]
+mesh = SubResource("BridgePlankMesh")
+[node name="Col" type="CollisionShape3D" parent="DoubleJumpChasm/LowPlat"]
+shape = SubResource("BridgePlankShape")
+
+[node name="HighPlat" type="StaticBody3D" parent="DoubleJumpChasm"]
+transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 0.7, -3.2, 2.5, -34.0)
+[node name="Mesh" type="MeshInstance3D" parent="DoubleJumpChasm/HighPlat"]
+mesh = SubResource("BridgePlankMesh")
+[node name="Col" type="CollisionShape3D" parent="DoubleJumpChasm/HighPlat"]
+shape = SubResource("BridgePlankShape")
+
+[node name="PetalDoubleJump" parent="DoubleJumpChasm" instance=ExtResource("27e_petal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2, 3.5, -34.0)
+
+[node name="LilyPad1" parent="." instance=ExtResource("8_lilypad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -33)
+
+[node name="LilyPad2" parent="." instance=ExtResource("8_lilypad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.05, -36.2)
+
+[node name="LilyPad3" parent="." instance=ExtResource("8_lilypad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -39.4)
+
+[node name="BeeLP3" parent="." instance=ExtResource("17_bee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -39.4)
+
+[node name="Mushroom1" parent="." instance=ExtResource("9_mushroom")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -43.5)
+stem_height = 1.2
+
+[node name="Sword" parent="." instance=ExtResource("20_sword")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, -43.5)
+
+[node name="Checkpoint2" parent="." instance=ExtResource("25_cp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0, -43.5)
+checkpoint_name = "Hongo de la Espada"
+
+[node name="DuelArena" type="Node3D" parent="."]
+
+[node name="Floor" type="StaticBody3D" parent="DuelArena"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -45.5)
+[node name="Mesh" type="MeshInstance3D" parent="DuelArena/Floor"]
+mesh = SubResource("DuelArenaMesh")
+[node name="Col" type="CollisionShape3D" parent="DuelArena/Floor"]
+shape = SubResource("DuelArenaShape")
+
+[node name="DuelLantern1" parent="DuelArena" instance=ExtResource("45_lantern")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 3.5, 1.6, -44)
+
+[node name="DuelLantern2" parent="DuelArena" instance=ExtResource("45_lantern")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -3.5, 1.6, -44)
+
+[node name="DuelToadling1" parent="DuelArena" instance=ExtResource("26_toad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 2.0, -45.5)
+max_health = 20
+damage_per_hit = 6
+detection_range = 5.0
+
+[node name="DuelToadling2" parent="DuelArena" instance=ExtResource("26_toad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8, 2.0, -46.0)
+max_health = 20
+damage_per_hit = 6
+detection_range = 5.0
+
+[node name="Boss" parent="." instance=ExtResource("19_boss")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.5, -50)
+has_territory = true
+territory_radius = 3.5
+
+[node name="BeeBoss" parent="." instance=ExtResource("17_bee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3.2, -48)
+
+[node name="Checkpoint3" parent="." instance=ExtResource("25_cp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -50)
+checkpoint_name = "Arena del Rey de Hierro"
+
+[node name="Goal" parent="." instance=ExtResource("5_goal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -52)
+
+
+[node name="Mountains" type="Node3D" parent="."]
+
+[node name="MountainEastBig" parent="Mountains" instance=ExtResource("40_mountain")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, 14, 0, -10)
+
+[node name="MountainWestMed" parent="Mountains" instance=ExtResource("40_mountain")]
+transform = Transform3D(1.0, 0, 0, 0, 1.0, 0, 0, 0, 1.0, -12, 0, -3)
+
+[node name="MountainNorthFar" parent="Mountains" instance=ExtResource("40_mountain")]
+transform = Transform3D(1.7, 0, 0, 0, 1.7, 0, 0, 0, 1.7, -16, 0, -28)
+
+[node name="MountainBackdrop" parent="Mountains" instance=ExtResource("40_mountain")]
+transform = Transform3D(2.4, 0, 0, 0, 2.4, 0, 0, 0, 2.4, 22, 0, -55)
+
+[node name="MountainEastFar" parent="Mountains" instance=ExtResource("40_mountain")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 11, 0, -40)
+
+[node name="MountainNorthBackdrop" parent="Mountains" instance=ExtResource("40_mountain")]
+transform = Transform3D(2.0, 0, 0, 0, 2.0, 0, 0, 0, 2.0, -18, 0, -65)
+
+[node name="StoneSteps" type="Node3D" parent="."]
+
+[node name="Step1" type="StaticBody3D" parent="StoneSteps"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0.2, -8)
+[node name="Mesh" type="MeshInstance3D" parent="StoneSteps/Step1"]
+mesh = SubResource("StoneStepMesh")
+[node name="Col" type="CollisionShape3D" parent="StoneSteps/Step1"]
+shape = SubResource("StoneStepShape")
+
+[node name="Step2" type="StaticBody3D" parent="StoneSteps"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 8.4, 0.7, -8.5)
+[node name="Mesh" type="MeshInstance3D" parent="StoneSteps/Step2"]
+mesh = SubResource("StoneStepMesh")
+[node name="Col" type="CollisionShape3D" parent="StoneSteps/Step2"]
+shape = SubResource("StoneStepShape")
+
+[node name="Step3" type="StaticBody3D" parent="StoneSteps"]
+transform = Transform3D(1.0, 0, 0, 0, 1.0, 0, 0, 0, 1.0, -7.8, 0.25, -22)
+[node name="Mesh" type="MeshInstance3D" parent="StoneSteps/Step3"]
+mesh = SubResource("StoneStepMesh")
+[node name="Col" type="CollisionShape3D" parent="StoneSteps/Step3"]
+shape = SubResource("StoneStepShape")
+
+[node name="Step4" type="StaticBody3D" parent="StoneSteps"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -8.6, 0.6, -22.6)
+[node name="Mesh" type="MeshInstance3D" parent="StoneSteps/Step4"]
+mesh = SubResource("StoneStepMesh")
+[node name="Col" type="CollisionShape3D" parent="StoneSteps/Step4"]
+shape = SubResource("StoneStepShape")
+
+[node name="Watchtower" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, -19)
+
+[node name="Post" type="StaticBody3D" parent="Watchtower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.25, 0)
+[node name="Mesh" type="MeshInstance3D" parent="Watchtower/Post"]
+mesh = SubResource("WatchPostMesh")
+[node name="Col" type="CollisionShape3D" parent="Watchtower/Post"]
+shape = SubResource("WatchPostShape")
+
+[node name="Top" type="StaticBody3D" parent="Watchtower"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.7, 0)
+[node name="Mesh" type="MeshInstance3D" parent="Watchtower/Top"]
+mesh = SubResource("WatchTopMesh")
+[node name="Col" type="CollisionShape3D" parent="Watchtower/Top"]
+shape = SubResource("WatchTopShape")
+
+[node name="Lantern" parent="Watchtower" instance=ExtResource("45_lantern")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0.6, 4.85, 0.4)
+
+[node name="Fireflies" parent="Watchtower" instance=ExtResource("43_fireflies")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.5, 0)
+amount = 18
+pulse_color = Color(0.95, 1, 0.55, 1)
+
+[node name="PetalWatchtower" parent="Watchtower" instance=ExtResource("27e_petal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.45, 0)
+
+[node name="FloatBridge" type="Node3D" parent="."]
+
+[node name="Plank1" type="StaticBody3D" parent="FloatBridge"]
+transform = Transform3D(0.92, 0, 0.39, 0, 1, 0, -0.39, 0, 0.92, -8.5, 0.55, -1.5)
+[node name="Mesh" type="MeshInstance3D" parent="FloatBridge/Plank1"]
+mesh = SubResource("FloatPlankMesh")
+[node name="Col" type="CollisionShape3D" parent="FloatBridge/Plank1"]
+shape = SubResource("FloatPlankShape")
+
+[node name="Plank2" type="StaticBody3D" parent="FloatBridge"]
+transform = Transform3D(0.85, 0, 0.53, 0, 1, 0, -0.53, 0, 0.85, -9.7, 0.55, -2.4)
+[node name="Mesh" type="MeshInstance3D" parent="FloatBridge/Plank2"]
+mesh = SubResource("FloatPlankMesh")
+[node name="Col" type="CollisionShape3D" parent="FloatBridge/Plank2"]
+shape = SubResource("FloatPlankShape")
+
+[node name="Plank3" type="StaticBody3D" parent="FloatBridge"]
+transform = Transform3D(0.77, 0, 0.64, 0, 1, 0, -0.64, 0, 0.77, -11.0, 0.55, -2.9)
+[node name="Mesh" type="MeshInstance3D" parent="FloatBridge/Plank3"]
+mesh = SubResource("FloatPlankMesh")
+[node name="Col" type="CollisionShape3D" parent="FloatBridge/Plank3"]
+shape = SubResource("FloatPlankShape")
+
+[node name="PetalBridge" parent="FloatBridge" instance=ExtResource("27e_petal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0, 1.3, -2.9)
+
+[node name="MossStumpA" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0.35, -6)
+[node name="Mesh" type="MeshInstance3D" parent="MossStumpA"]
+mesh = SubResource("MossStumpMesh")
+[node name="Col" type="CollisionShape3D" parent="MossStumpA"]
+shape = SubResource("MossStumpShape")
+
+[node name="MossStumpB" type="StaticBody3D" parent="."]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -5.8, 0.4, -16)
+[node name="Mesh" type="MeshInstance3D" parent="MossStumpB"]
+mesh = SubResource("MossStumpMesh")
+[node name="Col" type="CollisionShape3D" parent="MossStumpB"]
+shape = SubResource("MossStumpShape")
+
+[node name="FallenLogA" parent="." instance=ExtResource("44_log")]
+transform = Transform3D(0.866, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866, 6.0, 0, -23)
+
+[node name="FallenLogB" parent="." instance=ExtResource("44_log")]
+transform = Transform3D(0.5, 0, 0.866, 0, 1, 0, -0.866, 0, 0.5, -6.5, 0, -34)
+
+[node name="Lantern1" parent="." instance=ExtResource("45_lantern")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3)
+
+[node name="Lantern2" parent="." instance=ExtResource("45_lantern")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -8)
+
+[node name="Lantern3" parent="." instance=ExtResource("45_lantern")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, -18)
+
+[node name="Lantern4" parent="." instance=ExtResource("45_lantern")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 1.65, -43.5)
+
+[node name="Lantern5" parent="." instance=ExtResource("45_lantern")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 3.5, 2.5, -47)
+
+[node name="Lantern6" parent="." instance=ExtResource("45_lantern")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -3.5, 2.5, -47)
+
+[node name="Lantern7" parent="." instance=ExtResource("45_lantern")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 3.5, 2.5, -53)
+
+[node name="Lantern8" parent="." instance=ExtResource("45_lantern")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -3.5, 2.5, -53)
+
+[node name="DecoMushroomA" parent="." instance=ExtResource("9_mushroom")]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, -5.5, 0, -10)
+stem_height = 0.55
+cap_radius = 0.65
+
+[node name="DecoMushroomB" parent="." instance=ExtResource("9_mushroom")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -6.2, 0, -10.7)
+stem_height = 0.4
+cap_radius = 0.5
+
+[node name="DecoMushroomC" parent="." instance=ExtResource("9_mushroom")]
+transform = Transform3D(0.55, 0, 0, 0, 0.55, 0, 0, 0, 0.55, 5.8, 0, -19)
+stem_height = 0.42
+cap_radius = 0.55
+
+[node name="DecoMushroomD" parent="." instance=ExtResource("9_mushroom")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -5.8, 0, -27)
+stem_height = 0.5
+cap_radius = 0.7
+
+[node name="DecoMushroomE" parent="." instance=ExtResource("9_mushroom")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 6.4, 0, -30)
+stem_height = 0.35
+cap_radius = 0.5
+
+[node name="MountainSummitMushroom" parent="." instance=ExtResource("9_mushroom")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 5.74, -10)
+stem_height = 0.7
+cap_radius = 0.9
+
+[node name="PetalEastSummit" parent="." instance=ExtResource("27e_petal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 7.4, -10)
+
+[node name="OutcropMushroom" parent="." instance=ExtResource("9_mushroom")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 19.0, 2.45, -9.5)
+stem_height = 0.6
+cap_radius = 0.85
+
+[node name="LilyDecoA" parent="." instance=ExtResource("8_lilypad")]
+transform = Transform3D(0.6, 0, 0, 0, 1, 0, 0, 0, 0.6, -6, 0.05, -45)
+
+[node name="LilyDecoB" parent="." instance=ExtResource("8_lilypad")]
+transform = Transform3D(0.55, 0, 0, 0, 1, 0, 0, 0, 0.55, 4, 0.05, -55)
+
+[node name="LilyDecoC" parent="." instance=ExtResource("8_lilypad")]
+transform = Transform3D(0.45, 0, 0, 0, 1, 0, 0, 0, 0.45, -3, 0.05, -58)
+
+[node name="LilyDecoD" parent="." instance=ExtResource("8_lilypad")]
+transform = Transform3D(0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 7, 0.05, -42)
+
+[node name="LilyDecoE" parent="." instance=ExtResource("8_lilypad")]
+transform = Transform3D(0.4, 0, 0, 0, 1, 0, 0, 0, 0.4, -8, 0.05, -38)
+
+[node name="Cattails" type="Node3D" parent="."]
+
+[node name="C1" parent="Cattails" instance=ExtResource("42_cattail")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.5, 0, -33)
+
+[node name="C2" parent="Cattails" instance=ExtResource("42_cattail")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 0, -32)
+
+[node name="C3" parent="Cattails" instance=ExtResource("42_cattail")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0, 0, -36)
+
+[node name="C4" parent="Cattails" instance=ExtResource("42_cattail")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0, 0, -36)
+
+[node name="C5" parent="Cattails" instance=ExtResource("42_cattail")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -6.8, 0, -40)
+
+[node name="C6" parent="Cattails" instance=ExtResource("42_cattail")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 6.6, 0, -41)
+
+[node name="C7" parent="Cattails" instance=ExtResource("42_cattail")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -7.4, 0, -44)
+
+[node name="C8" parent="Cattails" instance=ExtResource("42_cattail")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 7.5, 0, -47)
+
+[node name="Bushes" type="Node3D" parent="."]
+
+[node name="B1" parent="Bushes" instance=ExtResource("41_bush")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -6, 0, -2)
+
+[node name="B2" parent="Bushes" instance=ExtResource("41_bush")]
+transform = Transform3D(1.0, 0, 0, 0, 1.0, 0, 0, 0, 1.0, 6, 0, -1)
+
+[node name="B3" parent="Bushes" instance=ExtResource("41_bush")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, -6.5, 0, -13)
+
+[node name="B4" parent="Bushes" instance=ExtResource("41_bush")]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 6.4, 0, -14)
+
+[node name="B5" parent="Bushes" instance=ExtResource("41_bush")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 5.8, 0, -22)
+
+[node name="B6" parent="Bushes" instance=ExtResource("41_bush")]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, -6.3, 0, -25)
+
+[node name="B7" parent="Bushes" instance=ExtResource("41_bush")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 5.4, 0, -29)
+
+[node name="B8" parent="Bushes" instance=ExtResource("41_bush")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -5.4, 0, -29)
+
+[node name="B9" parent="Bushes" instance=ExtResource("41_bush")]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -3.5, 2.5, -53)
+
+[node name="B10" parent="Bushes" instance=ExtResource("41_bush")]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 3.5, 2.5, -53)
+
+[node name="Fireflies1" parent="." instance=ExtResource("43_fireflies")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.0, -16)
+amount = 22
+
+[node name="Fireflies2" parent="." instance=ExtResource("43_fireflies")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1.2, -2)
+amount = 18
+pulse_color = Color(0.6, 1.0, 0.7, 1)
+
+[node name="Fireflies3" parent="." instance=ExtResource("43_fireflies")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -36)
+amount = 32
+pulse_color = Color(0.85, 1.0, 0.45, 1)
+
+[node name="Fireflies4" parent="." instance=ExtResource("43_fireflies")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -50)
+amount = 24
+pulse_color = Color(0.5, 0.9, 1.0, 1)
+
+[node name="Trees" type="Node3D" parent="."]
+
+[node name="Tree1" parent="Trees" instance=ExtResource("11_tree")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 0, 3)
+
+[node name="Tree2" parent="Trees" instance=ExtResource("11_tree")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.5, 0, 2)
+
+[node name="Tree3" parent="Trees" instance=ExtResource("11_tree")]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 8, 0, -10)
+
+[node name="Tree4" parent="Trees" instance=ExtResource("11_tree")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -8, 0, -8)
+
+[node name="Tree5" parent="Trees" instance=ExtResource("11_tree")]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 8.5, 0, -22)
+
+[node name="Tree6" parent="Trees" instance=ExtResource("11_tree")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, -8.5, 0, -20)
+
+[node name="Tree7" parent="Trees" instance=ExtResource("11_tree")]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, 9.5, 0, -34)
+
+[node name="Tree8" parent="Trees" instance=ExtResource("11_tree")]
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, -10.5, 0, -32)
+
+[node name="Tree9" parent="Trees" instance=ExtResource("11_tree")]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -12, 0, -50)
+
+[node name="Tree10" parent="Trees" instance=ExtResource("11_tree")]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 13, 0, -52)
+
+[node name="Tree11" parent="Trees" instance=ExtResource("11_tree")]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, 6, 0, 5)
+
+[node name="Tree12" parent="Trees" instance=ExtResource("11_tree")]
+transform = Transform3D(0.95, 0, 0, 0, 0.95, 0, 0, 0, 0.95, -6, 0, 5)
+
+[node name="Decorations" type="Node3D" parent="."]
+
+[node name="Rock_A" type="StaticBody3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.1, -16)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Rock_A"]
+mesh = SubResource("RockMesh")
+surface_material_override/0 = SubResource("Mat_rock_dec")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Rock_A"]
+shape = SubResource("RockShape")
+
+[node name="Rock_B" type="StaticBody3D" parent="Decorations"]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 4, 0.12, -18)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Rock_B"]
+mesh = SubResource("RockMesh")
+surface_material_override/0 = SubResource("Mat_rock_dec")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Rock_B"]
+shape = SubResource("RockShape")
+
+[node name="Rock_C" type="StaticBody3D" parent="Decorations"]
+transform = Transform3D(1.6, 0, 0, 0, 1.6, 0, 0, 0, 1.6, -3.5, 0.14, -28)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Rock_C"]
+mesh = SubResource("RockMesh")
+surface_material_override/0 = SubResource("Mat_rock_dec")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Rock_C"]
+shape = SubResource("RockShape")
+
+[node name="Rock_D" type="StaticBody3D" parent="Decorations"]
+transform = Transform3D(1.1, 0, 0, 0, 1.1, 0, 0, 0, 1.1, 4.5, 0.1, -29.5)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Rock_D"]
+mesh = SubResource("RockMesh")
+surface_material_override/0 = SubResource("Mat_rock_dec")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Rock_D"]
+shape = SubResource("RockShape")
+
+[node name="Rock_E" type="StaticBody3D" parent="Decorations"]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 6, 0.1, -7)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Rock_E"]
+mesh = SubResource("RockMesh")
+surface_material_override/0 = SubResource("Mat_rock_dec")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Rock_E"]
+shape = SubResource("RockShape")
+
+[node name="Rock_F" type="StaticBody3D" parent="Decorations"]
+transform = Transform3D(1.4, 0, 0, 0, 1.4, 0, 0, 0, 1.4, -5.8, 0.13, -3)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Rock_F"]
+mesh = SubResource("RockMesh")
+surface_material_override/0 = SubResource("Mat_rock_dec")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Rock_F"]
+shape = SubResource("RockShape")
+
+[node name="Gate_LL" type="StaticBody3D" parent="Decorations"]
+groups = ["gate_thornwick"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1.1, -7)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Gate_LL"]
+mesh = SubResource("BambooMesh")
+surface_material_override/0 = SubResource("Mat_bamboo")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Gate_LL"]
+shape = SubResource("BambooShape")
+
+[node name="Gate_L1" type="StaticBody3D" parent="Decorations"]
+groups = ["gate_thornwick"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 1.1, -7)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Gate_L1"]
+mesh = SubResource("BambooMesh")
+surface_material_override/0 = SubResource("Mat_bamboo")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Gate_L1"]
+shape = SubResource("BambooShape")
+
+[node name="Gate_C1" type="StaticBody3D" parent="Decorations"]
+groups = ["gate_thornwick"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, -7)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Gate_C1"]
+mesh = SubResource("BambooMesh")
+surface_material_override/0 = SubResource("Mat_bamboo")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Gate_C1"]
+shape = SubResource("BambooShape")
+
+[node name="Gate_R1" type="StaticBody3D" parent="Decorations"]
+groups = ["gate_thornwick"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1.1, -7)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Gate_R1"]
+mesh = SubResource("BambooMesh")
+surface_material_override/0 = SubResource("Mat_bamboo")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Gate_R1"]
+shape = SubResource("BambooShape")
+
+[node name="Gate_RR" type="StaticBody3D" parent="Decorations"]
+groups = ["gate_thornwick"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1.1, -7)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Gate_RR"]
+mesh = SubResource("BambooMesh")
+surface_material_override/0 = SubResource("Mat_bamboo")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Gate_RR"]
+shape = SubResource("BambooShape")
+
+[node name="Corridor_L1" type="StaticBody3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1.1, -8.5)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Corridor_L1"]
+mesh = SubResource("BambooMesh")
+surface_material_override/0 = SubResource("Mat_bamboo")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Corridor_L1"]
+shape = SubResource("BambooShape")
+
+[node name="Corridor_R1" type="StaticBody3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1.1, -8.5)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Corridor_R1"]
+mesh = SubResource("BambooMesh")
+surface_material_override/0 = SubResource("Mat_bamboo")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Corridor_R1"]
+shape = SubResource("BambooShape")
+
+[node name="Corridor_L2" type="StaticBody3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1.1, -12)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Corridor_L2"]
+mesh = SubResource("BambooMesh")
+surface_material_override/0 = SubResource("Mat_bamboo")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Corridor_L2"]
+shape = SubResource("BambooShape")
+
+[node name="Corridor_R2" type="StaticBody3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1.1, -12)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Corridor_R2"]
+mesh = SubResource("BambooMesh")
+surface_material_override/0 = SubResource("Mat_bamboo")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Corridor_R2"]
+shape = SubResource("BambooShape")
+
+[node name="Arena_L1" type="StaticBody3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1.1, -22)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Arena_L1"]
+mesh = SubResource("BambooMesh")
+surface_material_override/0 = SubResource("Mat_bamboo")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Arena_L1"]
+shape = SubResource("BambooShape")
+
+[node name="Arena_L2" type="StaticBody3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1.1, -25)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Arena_L2"]
+mesh = SubResource("BambooMesh")
+surface_material_override/0 = SubResource("Mat_bamboo")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Arena_L2"]
+shape = SubResource("BambooShape")
+
+[node name="Arena_L3" type="StaticBody3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 1.1, -28)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Arena_L3"]
+mesh = SubResource("BambooMesh")
+surface_material_override/0 = SubResource("Mat_bamboo")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Arena_L3"]
+shape = SubResource("BambooShape")
+
+[node name="Arena_R1" type="StaticBody3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1.1, -22)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Arena_R1"]
+mesh = SubResource("BambooMesh")
+surface_material_override/0 = SubResource("Mat_bamboo")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Arena_R1"]
+shape = SubResource("BambooShape")
+
+[node name="Arena_R2" type="StaticBody3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1.1, -25)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Arena_R2"]
+mesh = SubResource("BambooMesh")
+surface_material_override/0 = SubResource("Mat_bamboo")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Arena_R2"]
+shape = SubResource("BambooShape")
+
+[node name="Arena_R3" type="StaticBody3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 1.1, -28)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Arena_R3"]
+mesh = SubResource("BambooMesh")
+surface_material_override/0 = SubResource("Mat_bamboo")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Arena_R3"]
+shape = SubResource("BambooShape")
+
+[node name="Arena_N1" type="StaticBody3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.1, -21)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Arena_N1"]
+mesh = SubResource("BambooMesh")
+surface_material_override/0 = SubResource("Mat_bamboo")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Arena_N1"]
+shape = SubResource("BambooShape")
+
+[node name="Arena_N2" type="StaticBody3D" parent="Decorations"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.1, -21)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Arena_N2"]
+mesh = SubResource("BambooMesh")
+surface_material_override/0 = SubResource("Mat_bamboo")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Arena_N2"]
+shape = SubResource("BambooShape")
+
+[node name="Arena_S1" type="StaticBody3D" parent="Decorations"]
+groups = ["gate_arena"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 1.1, -29)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Arena_S1"]
+mesh = SubResource("BambooMesh")
+surface_material_override/0 = SubResource("Mat_bamboo")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Arena_S1"]
+shape = SubResource("BambooShape")
+
+[node name="Arena_S2" type="StaticBody3D" parent="Decorations"]
+groups = ["gate_arena"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1.1, -29)
+[node name="Mesh" type="MeshInstance3D" parent="Decorations/Arena_S2"]
+mesh = SubResource("BambooMesh")
+surface_material_override/0 = SubResource("Mat_bamboo")
+[node name="Collision" type="CollisionShape3D" parent="Decorations/Arena_S2"]
+shape = SubResource("BambooShape")
+
+[node name="HUD" parent="." unique_id=540161838 instance=ExtResource("4_hud")]

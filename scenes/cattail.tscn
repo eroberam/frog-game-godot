@@ -1,0 +1,53 @@
+[gd_scene format=3]
+
+[sub_resource type="CylinderMesh" id="StalkMesh"]
+top_radius = 0.025
+bottom_radius = 0.04
+height = 1.4
+radial_segments = 6
+
+[sub_resource type="StandardMaterial3D" id="Mat_stalk"]
+albedo_color = Color(0.45, 0.6, 0.18, 1)
+roughness = 0.85
+
+[sub_resource type="CapsuleMesh" id="CatMesh"]
+radius = 0.08
+height = 0.34
+radial_segments = 8
+rings = 4
+
+[sub_resource type="StandardMaterial3D" id="Mat_cat"]
+albedo_color = Color(0.42, 0.22, 0.08, 1)
+roughness = 0.78
+
+[node name="Cattail" type="Node3D"]
+
+[node name="Stalk1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+mesh = SubResource("StalkMesh")
+surface_material_override/0 = SubResource("Mat_stalk")
+
+[node name="Cat1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, 0)
+mesh = SubResource("CatMesh")
+surface_material_override/0 = SubResource("Mat_cat")
+
+[node name="Stalk2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0.18, 0.6, 0.08)
+mesh = SubResource("StalkMesh")
+surface_material_override/0 = SubResource("Mat_stalk")
+
+[node name="Cat2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0.18, 1.32, 0.08)
+mesh = SubResource("CatMesh")
+surface_material_override/0 = SubResource("Mat_cat")
+
+[node name="Stalk3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -0.16, 0.55, -0.05)
+mesh = SubResource("StalkMesh")
+surface_material_override/0 = SubResource("Mat_stalk")
+
+[node name="Cat3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.85, 0, 0, 0, 0.85, 0, 0, 0, 0.85, -0.16, 1.22, -0.05)
+mesh = SubResource("CatMesh")
+surface_material_override/0 = SubResource("Mat_cat")

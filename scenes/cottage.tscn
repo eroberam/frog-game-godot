@@ -1,0 +1,18 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/cottage.gd" id="0_script"]
+[ext_resource type="ArrayMesh" path="res://assets/models/cottage/Meshy_AI_Hopper_s_Hollow_Cotta_0508113815_texture_obj/Meshy_AI_Hopper_s_Hollow_Cotta_0508113815_texture.obj" id="1_mesh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_col"]
+size = Vector3(3.5, 4.0, 3.5)
+
+[node name="Cottage" type="StaticBody3D"]
+script = ExtResource("0_script")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+mesh = ExtResource("1_mesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0, 0)
+shape = SubResource("BoxShape3D_col")

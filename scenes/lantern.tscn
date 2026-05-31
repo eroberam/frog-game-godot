@@ -1,0 +1,50 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/textures/Wood049/Wood049_1K-JPG_Color.jpg" id="1_wood_col"]
+[ext_resource type="Texture2D" path="res://assets/textures/Wood049/Wood049_1K-JPG_NormalGL.jpg" id="2_wood_nrm"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_post"]
+albedo_texture = ExtResource("1_wood_col")
+normal_enabled = true
+normal_texture = ExtResource("2_wood_nrm")
+roughness = 0.92
+uv1_scale = Vector3(1, 3, 1)
+
+[sub_resource type="CylinderMesh" id="PostMesh"]
+top_radius = 0.06
+bottom_radius = 0.08
+height = 1.8
+material = SubResource("Mat_post")
+
+[sub_resource type="StandardMaterial3D" id="Mat_paper"]
+albedo_color = Color(1.0, 0.78, 0.45, 0.95)
+roughness = 0.6
+emission_enabled = true
+emission = Color(1.0, 0.7, 0.35, 1)
+emission_energy_multiplier = 1.6
+transparency = 1
+shading_mode = 1
+
+[sub_resource type="SphereMesh" id="LampMesh"]
+radius = 0.22
+height = 0.42
+radial_segments = 14
+rings = 8
+material = SubResource("Mat_paper")
+
+[node name="Lantern" type="StaticBody3D"]
+
+[node name="Post" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+mesh = SubResource("PostMesh")
+
+[node name="Lamp" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85, 0)
+mesh = SubResource("LampMesh")
+
+[node name="Light" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.85, 0)
+light_color = Color(1, 0.78, 0.4, 1)
+light_energy = 1.4
+omni_range = 5.5
+shadow_enabled = false

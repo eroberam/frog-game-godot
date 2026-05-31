@@ -1,0 +1,26 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_enemy"]
+[ext_resource type="ArrayMesh" path="res://assets/models/boss/Meshy_AI_Croak_the_Iron_King_0508114426_texture_obj/Meshy_AI_Croak_the_Iron_King_0508114426_texture.obj" id="2_mesh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape_boss"]
+radius = 0.42
+height = 1.5
+
+[node name="BossEnemy" type="CharacterBody3D"]
+script = ExtResource("1_enemy")
+is_boss = true
+max_health = 120
+speed_fraction = 0.38
+damage_per_hit = 20
+damage_interval = 1.2
+detection_range = 9.0
+attack_range = 1.6
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, -0.2, 0)
+mesh = ExtResource("2_mesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("CapsuleShape_boss")

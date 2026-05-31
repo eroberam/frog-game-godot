@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://p211kxhca6p8"
+path="res://.godot/imported/Meshy_AI_Hopper_s_Hollow_Cotta_0508113815_texture.obj-6d461f4525caaa15ef181a1e08d6bd22.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Meshy_AI_Hopper_s_Hollow_Cotta_0508113815_texture.obj-6d461f4525caaa15ef181a1e08d6bd22.mesh"]
+
+source_file="res://assets/models/cottage/Meshy_AI_Hopper_s_Hollow_Cotta_0508113815_texture_obj/Meshy_AI_Hopper_s_Hollow_Cotta_0508113815_texture.obj"
+dest_files=["res://.godot/imported/Meshy_AI_Hopper_s_Hollow_Cotta_0508113815_texture.obj-6d461f4525caaa15ef181a1e08d6bd22.mesh", "res://.godot/imported/Meshy_AI_Hopper_s_Hollow_Cotta_0508113815_texture.obj-6d461f4525caaa15ef181a1e08d6bd22.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

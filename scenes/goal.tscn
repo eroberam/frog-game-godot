@@ -1,0 +1,129 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/goal.gd" id="1_goal"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_goal_outer"]
+transparency = 1
+albedo_color = Color(0.2, 1, 0.4, 0.35)
+emission_enabled = true
+emission = Color(0.25, 1, 0.5, 1)
+emission_energy_multiplier = 2.4
+shading_mode = 0
+disable_receive_shadows = true
+
+[sub_resource type="StandardMaterial3D" id="Mat_goal_core"]
+transparency = 1
+albedo_color = Color(0.85, 1.0, 0.95, 0.65)
+emission_enabled = true
+emission = Color(0.7, 1, 0.8, 1)
+emission_energy_multiplier = 4.0
+shading_mode = 0
+disable_receive_shadows = true
+
+[sub_resource type="StandardMaterial3D" id="Mat_goal_ring"]
+albedo_color = Color(0.85, 1, 0.7, 1)
+emission_enabled = true
+emission = Color(0.9, 1, 0.6, 1)
+emission_energy_multiplier = 3.0
+shading_mode = 0
+metallic = 0.4
+roughness = 0.3
+
+[sub_resource type="CylinderMesh" id="MeshOuter"]
+top_radius = 1.4
+bottom_radius = 1.4
+height = 6.0
+radial_segments = 24
+material = SubResource("Mat_goal_outer")
+
+[sub_resource type="CylinderMesh" id="MeshCore"]
+top_radius = 0.45
+bottom_radius = 0.45
+height = 14.0
+radial_segments = 18
+material = SubResource("Mat_goal_core")
+
+[sub_resource type="TorusMesh" id="MeshRingA"]
+inner_radius = 1.05
+outer_radius = 1.25
+ring_segments = 8
+rings = 24
+material = SubResource("Mat_goal_ring")
+
+[sub_resource type="TorusMesh" id="MeshRingB"]
+inner_radius = 0.65
+outer_radius = 0.85
+ring_segments = 8
+rings = 22
+material = SubResource("Mat_goal_ring")
+
+[sub_resource type="CylinderShape3D" id="ShapeGoal"]
+radius = 1.2
+height = 3.5
+
+[sub_resource type="StandardMaterial3D" id="Mat_goal_p"]
+albedo_color = Color(0.7, 1, 0.85, 1)
+emission_enabled = true
+emission = Color(0.6, 1, 0.85, 1)
+emission_energy_multiplier = 6.0
+shading_mode = 0
+
+[sub_resource type="SphereMesh" id="GoalParticleMesh"]
+radius = 0.07
+height = 0.14
+radial_segments = 6
+rings = 3
+material = SubResource("Mat_goal_p")
+
+[sub_resource type="ParticleProcessMaterial" id="ProcMat_goal"]
+emission_shape = 1
+emission_sphere_radius = 0.55
+direction = Vector3(0, 1, 0)
+spread = 14.0
+gravity = Vector3(0, 1.4, 0)
+initial_velocity_min = 0.6
+initial_velocity_max = 1.4
+damping_min = 0.0
+damping_max = 0.4
+scale_min = 0.7
+scale_max = 1.4
+color = Color(0.7, 1, 0.85, 1)
+
+[node name="Goal" type="Area3D"]
+script = ExtResource("1_goal")
+
+[node name="Outer" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0, 0)
+mesh = SubResource("MeshOuter")
+
+[node name="Core" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.0, 0)
+mesh = SubResource("MeshCore")
+
+[node name="RingA" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0, 0)
+mesh = SubResource("MeshRingA")
+
+[node name="RingB" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.0, 0)
+mesh = SubResource("MeshRingB")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("ShapeGoal")
+
+[node name="Light" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+light_color = Color(0.6, 1, 0.7, 1)
+light_energy = 2.5
+omni_range = 8.0
+shadow_enabled = false
+
+[node name="Particles" type="GPUParticles3D" parent="."]
+amount = 60
+lifetime = 2.4
+preprocess = 1.0
+randomness = 1.0
+visibility_aabb = AABB(-1.5, 0, -1.5, 3, 8, 3)
+process_material = SubResource("ProcMat_goal")
+draw_pass_1 = SubResource("GoalParticleMesh")

@@ -1,0 +1,18 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/sword.gd" id="1_sword"]
+[ext_resource type="ArrayMesh" path="res://assets/models/sword/Meshy_AI_Espada_de_Palmera_Ran_0508172004_texture_obj/Meshy_AI_Espada_de_Palmera_Ran_0508172004_texture.obj" id="2_mesh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape_sword"]
+size = Vector3(0.5, 1.2, 0.5)
+
+[node name="Sword" type="Area3D"]
+script = ExtResource("1_sword")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+mesh = ExtResource("2_mesh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("BoxShape_sword")

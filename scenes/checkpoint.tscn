@@ -1,0 +1,122 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/checkpoint.gd" id="1_cp"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_pillar"]
+albedo_color = Color(0.4, 0.95, 0.55, 0.45)
+emission_enabled = true
+emission = Color(0.35, 1.0, 0.55, 1)
+emission_energy_multiplier = 1.2
+transparency = 1
+shading_mode = 0
+disable_receive_shadows = true
+
+[sub_resource type="StandardMaterial3D" id="Mat_ring"]
+albedo_color = Color(0.5, 1.0, 0.55, 1)
+emission_enabled = true
+emission = Color(0.4, 1.0, 0.6, 1)
+emission_energy_multiplier = 2.0
+shading_mode = 0
+metallic = 0.4
+roughness = 0.4
+
+[sub_resource type="StandardMaterial3D" id="Mat_rune"]
+albedo_color = Color(0.85, 1.0, 0.6, 1)
+emission_enabled = true
+emission = Color(0.7, 1.0, 0.55, 1)
+emission_energy_multiplier = 1.8
+shading_mode = 0
+metallic = 0.6
+roughness = 0.3
+
+[sub_resource type="CylinderMesh" id="PillarMesh"]
+top_radius = 0.45
+bottom_radius = 0.45
+height = 12.0
+radial_segments = 18
+material = SubResource("Mat_pillar")
+
+[sub_resource type="TorusMesh" id="RingMesh"]
+inner_radius = 0.7
+outer_radius = 0.85
+ring_segments = 8
+rings = 28
+material = SubResource("Mat_ring")
+
+[sub_resource type="PrismMesh" id="RuneMesh"]
+size = Vector3(0.55, 0.55, 0.18)
+material = SubResource("Mat_rune")
+
+[sub_resource type="BoxShape3D" id="BoxShape_cp"]
+size = Vector3(3, 2, 3)
+
+[sub_resource type="StandardMaterial3D" id="Mat_particle"]
+albedo_color = Color(0.65, 1.0, 0.7, 1)
+emission_enabled = true
+emission = Color(0.5, 1, 0.6, 1)
+emission_energy_multiplier = 5.0
+shading_mode = 0
+
+[sub_resource type="SphereMesh" id="ParticleMesh"]
+radius = 0.06
+height = 0.12
+radial_segments = 6
+rings = 3
+material = SubResource("Mat_particle")
+
+[sub_resource type="ParticleProcessMaterial" id="ProcMat_cp"]
+emission_shape = 1
+emission_sphere_radius = 0.95
+direction = Vector3(0, 1, 0)
+spread = 8.0
+gravity = Vector3(0, 1.6, 0)
+initial_velocity_min = 0.4
+initial_velocity_max = 1.2
+damping_min = 0.0
+damping_max = 0.4
+scale_min = 0.7
+scale_max = 1.4
+color = Color(0.7, 1, 0.6, 1)
+
+[node name="Checkpoint" type="Area3D"]
+script = ExtResource("1_cp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape_cp")
+
+[node name="Pillar" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.0, 0)
+mesh = SubResource("PillarMesh")
+
+[node name="Ring" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.18, 0)
+mesh = SubResource("RingMesh")
+
+[node name="Rune" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55, 0)
+mesh = SubResource("RuneMesh")
+
+[node name="Light" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+light_color = Color(0.5, 1.0, 0.6, 1)
+light_energy = 0.4
+omni_range = 4.0
+shadow_enabled = false
+
+[node name="Spotlight" type="SpotLight3D" parent="."]
+transform = Transform3D(-1, 0, 0, 0, 0, -1, 0, -1, 0, 0, 11, 0)
+light_color = Color(0.7, 1.0, 0.7, 1)
+light_energy = 0.0
+spot_range = 14.0
+spot_angle = 35.0
+shadow_enabled = false
+
+[node name="ActivateParticles" type="GPUParticles3D" parent="."]
+amount = 60
+lifetime = 1.6
+one_shot = true
+explosiveness = 0.4
+visibility_aabb = AABB(-2, 0, -2, 4, 6, 4)
+process_material = SubResource("ProcMat_cp")
+draw_pass_1 = SubResource("ParticleMesh")
+emitting = false

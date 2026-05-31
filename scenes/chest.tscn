@@ -1,0 +1,37 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/chest.gd" id="1_chest"]
+[ext_resource type="ArrayMesh" path="res://assets/models/chest/Meshy_AI_Treasure_Frog_0508113939_texture_obj/Meshy_AI_Treasure_Frog_0508113939_texture.obj" id="2_mesh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_col"]
+size = Vector3(1.2, 1.0, 1.2)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_detect"]
+radius = 2.2
+
+[node name="Chest" type="Node3D"]
+script = ExtResource("1_chest")
+
+[node name="ChestMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+mesh = ExtResource("2_mesh")
+
+[node name="StaticCollision" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticCollision"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_col")
+
+[node name="DetectionArea" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DetectionArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_detect")
+
+[node name="PromptLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+pixel_size = 0.006
+font_size = 64
+outline_size = 14
+text = ""
+billboard = 1

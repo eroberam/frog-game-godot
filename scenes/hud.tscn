@@ -1,0 +1,383 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_hud"]
+
+[sub_resource type="StyleBoxFlat" id="SB_panel"]
+bg_color = Color(0, 0, 0, 0.58)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 10.0
+content_margin_top = 7.0
+content_margin_right = 10.0
+content_margin_bottom = 7.0
+
+[sub_resource type="StyleBoxFlat" id="SB_quest"]
+bg_color = Color(0.04, 0.07, 0.12, 0.78)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+content_margin_left = 14.0
+content_margin_top = 10.0
+content_margin_right = 18.0
+content_margin_bottom = 10.0
+border_width_left = 3
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.95, 0.85, 0.45, 1)
+
+[sub_resource type="StyleBoxFlat" id="SB_petals"]
+bg_color = Color(0.1, 0.04, 0.08, 0.78)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 10.0
+content_margin_top = 6.0
+content_margin_right = 12.0
+content_margin_bottom = 6.0
+border_width_left = 2
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 0.55, 0.78, 1)
+
+[sub_resource type="StyleBoxFlat" id="SB_dmg_vignette"]
+bg_color = Color(0.85, 0.05, 0.05, 0)
+corner_radius_top_left = 0
+corner_radius_top_right = 0
+corner_radius_bottom_right = 0
+corner_radius_bottom_left = 0
+
+[sub_resource type="StyleBoxFlat" id="SB_hp_bg"]
+bg_color = Color(0.15, 0.04, 0.04, 0.88)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="SB_hp_fill"]
+bg_color = Color(0.15, 0.78, 0.2, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="SB_charge_bg"]
+bg_color = Color(0.05, 0.05, 0.15, 0.88)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="SB_charge_fill"]
+bg_color = Color(0.3, 0.6, 1.0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="SB_toast"]
+bg_color = Color(0.04, 0.18, 0.08, 0.92)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+content_margin_left = 18.0
+content_margin_top = 12.0
+content_margin_right = 22.0
+content_margin_bottom = 12.0
+border_width_left = 4
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.45, 1, 0.55, 1)
+shadow_color = Color(0, 0.6, 0.2, 0.4)
+shadow_size = 12
+shadow_offset = Vector2(0, 4)
+
+[sub_resource type="StyleBoxFlat" id="SB_dialogue"]
+bg_color = Color(0.04, 0.08, 0.04, 0.93)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+content_margin_left = 20.0
+content_margin_top = 14.0
+content_margin_right = 20.0
+content_margin_bottom = 14.0
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3, 0.75, 0.3, 1)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_hud")
+
+[node name="StatsPanel" type="Panel" parent="."]
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 240.0
+offset_bottom = 56.0
+theme_override_styles/panel = SubResource("SB_panel")
+
+[node name="VBox" type="VBoxContainer" parent="StatsPanel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = -10.0
+offset_bottom = -7.0
+
+[node name="ItemsLabel" type="Label" parent="StatsPanel/VBox"]
+text = "Luciérnagas: 0 / 3"
+theme_override_colors/font_color = Color(1, 0.95, 0.3, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="HPBar" type="ProgressBar" parent="."]
+offset_left = 14.0
+offset_top = 62.0
+offset_right = 240.0
+offset_bottom = 84.0
+value = 100.0
+theme_override_styles/background = SubResource("SB_hp_bg")
+theme_override_styles/fill = SubResource("SB_hp_fill")
+show_percentage = false
+
+[node name="HPLabel" type="Label" parent="HPBar"]
+anchor_left = 0.0
+anchor_right = 1.0
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -9.0
+offset_bottom = 9.0
+horizontal_alignment = 1
+text = "100 / 100"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 13
+
+[node name="HeartIcon" type="Label" parent="."]
+offset_left = 14.0
+offset_top = 62.0
+offset_right = 32.0
+offset_bottom = 84.0
+text = "♥"
+theme_override_colors/font_color = Color(0.95, 0.2, 0.2, 1)
+theme_override_font_sizes/font_size = 16
+
+[node name="StatsLine" type="Label" parent="."]
+offset_left = 14.0
+offset_top = 88.0
+offset_right = 640.0
+offset_bottom = 108.0
+text = "⚡ Normal  ↑ Simple  ⚔ 25  🗡 Puños"
+theme_override_colors/font_color = Color(0.82, 0.92, 0.82, 0.92)
+theme_override_font_sizes/font_size = 13
+
+[node name="ChargeBar" type="ProgressBar" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_top = 0.88
+anchor_bottom = 0.88
+offset_left = -120.0
+offset_right = 120.0
+offset_top = -14.0
+offset_bottom = 14.0
+value = 0.0
+theme_override_styles/background = SubResource("SB_charge_bg")
+theme_override_styles/fill = SubResource("SB_charge_fill")
+show_percentage = false
+
+[node name="ChargeLabel" type="Label" parent="ChargeBar"]
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_right = 60.0
+offset_top = -10.0
+offset_bottom = 10.0
+horizontal_alignment = 1
+text = "↑ CARGANDO SALTO"
+theme_override_colors/font_color = Color(0.8, 0.9, 1, 1)
+theme_override_font_sizes/font_size = 12
+
+[node name="PowerFlash" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.26
+anchor_right = 0.5
+anchor_bottom = 0.26
+offset_left = -320.0
+offset_right = 320.0
+horizontal_alignment = 1
+text = ""
+theme_override_colors/font_color = Color(1, 1, 0.2, 1)
+theme_override_font_sizes/font_size = 30
+
+[node name="GoalHint" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.85
+anchor_right = 0.5
+anchor_bottom = 0.85
+offset_left = -300.0
+offset_right = 300.0
+horizontal_alignment = 1
+text = ""
+theme_override_colors/font_color = Color(0.3, 1, 0.5, 1)
+theme_override_font_sizes/font_size = 22
+
+[node name="CheckpointToast" type="Panel" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+anchor_left = 1.0
+anchor_top = 0.18
+anchor_right = 1.0
+anchor_bottom = 0.18
+offset_left = -380.0
+offset_right = -16.0
+offset_top = 0.0
+offset_bottom = 78.0
+theme_override_styles/panel = SubResource("SB_toast")
+
+[node name="HBox" type="HBoxContainer" parent="CheckpointToast"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 12.0
+offset_right = -22.0
+offset_bottom = -12.0
+
+[node name="Icon" type="Label" parent="CheckpointToast/HBox"]
+text = "✦"
+theme_override_colors/font_color = Color(0.55, 1, 0.6, 1)
+theme_override_font_sizes/font_size = 38
+
+[node name="VBox" type="VBoxContainer" parent="CheckpointToast/HBox"]
+
+[node name="Title" type="Label" parent="CheckpointToast/HBox/VBox"]
+text = "PUNTO DE SAVIA"
+theme_override_colors/font_color = Color(0.55, 1, 0.6, 1)
+theme_override_font_sizes/font_size = 14
+
+[node name="Subtitle" type="Label" parent="CheckpointToast/HBox/VBox"]
+text = "La charca recuerda este lugar."
+theme_override_colors/font_color = Color(0.95, 0.98, 0.92, 1)
+theme_override_font_sizes/font_size = 17
+
+[node name="DamageVignette" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.8, 0.05, 0.05, 0.6)
+mouse_filter = 2
+
+[node name="QuestTracker" type="Panel" parent="."]
+anchor_left = 1.0
+anchor_top = 0.025
+anchor_right = 1.0
+anchor_bottom = 0.025
+offset_left = -340.0
+offset_right = -16.0
+offset_bottom = 56.0
+theme_override_styles/panel = SubResource("SB_quest")
+
+[node name="HBox" type="HBoxContainer" parent="QuestTracker"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 8.0
+offset_right = -16.0
+offset_bottom = -8.0
+theme_override_constants/separation = 10
+
+[node name="Icon" type="Label" parent="QuestTracker/HBox"]
+text = "📍"
+theme_override_font_sizes/font_size = 22
+
+[node name="VBox" type="VBoxContainer" parent="QuestTracker/HBox"]
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="QuestTracker/HBox/VBox"]
+text = "OBJETIVO"
+theme_override_colors/font_color = Color(0.95, 0.85, 0.45, 1)
+theme_override_font_sizes/font_size = 11
+
+[node name="Text" type="Label" parent="QuestTracker/HBox/VBox"]
+text = "Habla con Thornwick el Sabio"
+theme_override_colors/font_color = Color(0.95, 0.97, 0.92, 1)
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 3
+
+[node name="PetalsBox" type="Panel" parent="."]
+anchor_left = 1.0
+anchor_top = 0.025
+anchor_right = 1.0
+anchor_bottom = 0.025
+offset_left = -160.0
+offset_top = 76.0
+offset_right = -16.0
+offset_bottom = 116.0
+theme_override_styles/panel = SubResource("SB_petals")
+
+[node name="HBox" type="HBoxContainer" parent="PetalsBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = -10.0
+offset_bottom = -5.0
+theme_override_constants/separation = 8
+
+[node name="Icon" type="Label" parent="PetalsBox/HBox"]
+text = "🌸"
+theme_override_font_sizes/font_size = 22
+
+[node name="Count" type="Label" parent="PetalsBox/HBox"]
+text = "0  /  6"
+theme_override_colors/font_color = Color(1, 0.7, 0.85, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="WaterSplashOverlay" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.12, 0.4, 0.55, 0.55)
+mouse_filter = 2
+
+[node name="DialogueBox" type="Panel" parent="."]
+visible = false
+anchor_left = 0.1
+anchor_top = 0.72
+anchor_right = 0.9
+anchor_bottom = 0.98
+theme_override_styles/panel = SubResource("SB_dialogue")
+
+[node name="VBox" type="VBoxContainer" parent="DialogueBox"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 12.0
+offset_right = -20.0
+offset_bottom = -12.0
+
+[node name="SpeakerLabel" type="Label" parent="DialogueBox/VBox"]
+text = "Sapo Sabio"
+theme_override_colors/font_color = Color(0.4, 1, 0.5, 1)
+theme_override_font_sizes/font_size = 18
+
+[node name="DialogueText" type="Label" parent="DialogueBox/VBox"]
+text = ""
+autowrap_mode = 3
+theme_override_colors/font_color = Color(0.95, 0.95, 0.9, 1)
+theme_override_font_sizes/font_size = 17
+
+[node name="ContinueHint" type="Label" parent="DialogueBox/VBox"]
+text = "[ E ] Continuar"
+horizontal_alignment = 2
+theme_override_colors/font_color = Color(0.55, 0.55, 0.55, 1)
+theme_override_font_sizes/font_size = 13
