@@ -1,6 +1,28 @@
+# Godot 4+
 .godot/
-*.translation
 
-# OS/editor noise
+# Godot 3
+.import/
+
+# Exported files / builds
+builds/
+exports/
+*.exe
+*.apk
+*.aab
+*.ipa
+*.zip
+
+# Export configuration
+export.cfg
+
+# Local/editor/system files
 .DS_Store
 Thumbs.db
+*.tmp
+*.log
+
+# Mono / C#
+.mono/
+data_*/
+mono_crash.*.json
